@@ -1,18 +1,7 @@
 Rails.application.routes.draw do
-  # 指定根目錄為貼文首頁
-  root 'post#index'
-
-  resources :admin do
-    collection do
-      get :sing_in # user/sign_in
-      post :login
-      post :edit
-      patch :update
-    end
-  end
-
-  # post
-  resources :post
-  # profile
-  # resources :profile
+  # 之後指定根目錄為貼文首頁
+  root 'admins#index'
+  get 'admins/sign_in', to: 'admins#sign_in'
+  post 'admins/sign_in', to: 'admins#login'
+  delete 'admins/sign_out', to: 'admins#sign_out'
 end
