@@ -1,14 +1,14 @@
 class Admin < ApplicationRecord
-  # account password 必填
   validates :account, presence: true, uniqueness: true
   validates :password, presence: true
   # 密碼加密
   before_create :encrypt_password
 
+  # 定義
   def self.login(options)
     if options[:account] && options[:password]
       find_by(account: options[:account],
-              password: Digest::SHA1.hexdigest('x' + options[:password] + 'y'))
+              password: Digest::SHA1.hexdigest('cu' + options[:password] + 'te'))
     end
   end
 
@@ -19,7 +19,7 @@ class Admin < ApplicationRecord
   end
 
   def popper(string)
-    string = 'x' + string + 'y'
+    string = 'cu' + string + 'te'
     Digest::SHA1.hexdigest(string)
   end
 end

@@ -1,4 +1,5 @@
-class AdminController < ApplicationController
+class AdminsController < ApplicationController
+  require 'securerandom'
   def sign_in
     @admin = Admin.new
   end
@@ -22,7 +23,7 @@ class AdminController < ApplicationController
   private
 
   def sign_in_admin(a)
-    session[:admin_token] = a.id
+    session[:admin_token] = SecureRandom.uuid
   end
 
   def sign_out_admin
