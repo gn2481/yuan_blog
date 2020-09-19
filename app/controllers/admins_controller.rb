@@ -1,4 +1,4 @@
-class AdminController < ApplicationController
+class AdminsController < ApplicationController
   require 'securerandom'
   def sign_in
     @admin = Admin.new
