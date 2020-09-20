@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_admin
-    @current_admin ||= Admin.find_by(id: session[:admin_token])
+    @current_admin ||= Admin.find_by(token: session[:admin_token])
     # 若不加@，效能較差，因為每次都要去資料庫找
     # 加了之後因為用 ||=，指定一次之後，第二次之後就不需要再去找資料庫
   end
