@@ -3,7 +3,7 @@ class CreatePosts < ActiveRecord::Migration[6.0]
     create_table :posts do |t|
       t.string :title
       t.string :content
-      t.references :admin, null: false, foreign_key: true
+      t.references :admins, null: false, foreign_key: true
 
       t.timestamps
     end
