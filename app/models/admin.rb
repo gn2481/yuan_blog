@@ -4,6 +4,8 @@ class Admin < ApplicationRecord
   # 密碼加密
   before_create :encrypt_password
 
+  has_many :posts
+
   # 定義
   def self.login(options)
     if options[:account] && options[:password]

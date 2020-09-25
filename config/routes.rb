@@ -9,5 +9,6 @@ Rails.application.routes.draw do
       delete :sign_out
     end
   end
-  
+
+  resources :posts
 end
