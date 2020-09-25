@@ -1,0 +1,19 @@
+<div class="col-12 bg-info">
+  <table class="col-4 table table-borderless text-light mb-0">
+    <tr>
+      <th>標題</th>
+      <td><%= @post.title %></td>
+    </tr>
+
+    <tr>
+      <th>時間</th>
+      <td><%= @post.created_at %></td>
+    </tr>
+  </table>
+</div>
+
+<div class="tag"></div>
+
+<div class="col-12 mt-5">
+  <p><%= @post.content %></p>
+</div>
