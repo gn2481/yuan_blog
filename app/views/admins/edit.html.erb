@@ -1,0 +1,20 @@
+<h1>編輯個人檔案</h1>
+<%= form_with model: @admin, url: admins_path, method: 'PUT', local: true do |f| %>
+    <div class="fields">
+      <%= f.label :avatar %>
+      <%= f.text_field :avatar %>
+    </div>
+    <div class="fields">
+      <%= f.label :email, '信箱' %>
+      <%= f.email_field :email %>
+    </div>
+    <div class="fields">
+      <%= f.label :introduction, '簡介' %>
+      <%= f.text_area :introduction %>
+    </div>
+    <div class="fields">
+      <%= f.label :experience , '工作經歷' %>
+      <%= f.text_area :experience %>
+    </div>
+    <%= f.submit "存檔"%>
+  <% end %> 

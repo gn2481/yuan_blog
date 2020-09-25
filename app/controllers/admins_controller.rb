@@ -1,5 +1,8 @@
-class AdminController < ApplicationController
+class AdminsController < ApplicationController
   require 'securerandom'
+  def show
+    @admin = current_admin
+  end
   def sign_in
     @admin = Admin.new
   end
@@ -17,13 +20,28 @@ class AdminController < ApplicationController
 
   def sign_out
     sign_out_admin
-    redirect_to root_path, notice: '會員登出成功'
+    redirect_to root_path, notice: '成功登出'
   end
+
+  def edit
+    @admin = current_admin
+  end
+
+  def update
+    admin = current_admin
+    if admin.update(admin_params)
+      redirect_to root_path, notice: '資料更新成功'
+    else
+      render :edit
+    end
+  end
+
 
   private
 
   def sign_in_admin(a)
     session[:admin_token] = SecureRandom.uuid
+    a.update(token: session[:admin_token])
   end
 
   def sign_out_admin
@@ -31,6 +49,6 @@ class AdminController < ApplicationController
   end
 
   def admin_params
-    params.require(:admin).permit(:account, :password)
+    params.require(:admin).permit(:account, :password, :avatar, :experience, :email, :introduction)
   end
 end
