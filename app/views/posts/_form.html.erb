@@ -1,18 +1,18 @@
 <div class="col-6 m-auto text-center">
   <h1>新增文章</h1>
   
-  <%= form_with(model: post, url: board_posts_path, local: true) do |form| %>
+  <%= form_with(model: post, url: posts_path, local: true) do |form| %>
   
     <div class="fields">
       <%= form.label :title, "標題" %>
       <%= form.text_field :title %>
     </div>
-  
+  <%# category selection %>
     <div class="fields">
       <%= form.label :content, "內文" %>
       <%= form.text_area :content %>
     </div>
 
-    <%= form.submit, "發布文章" %>
+    <%= form.submit "發布文章" %>
   <% end %>
 </div>
