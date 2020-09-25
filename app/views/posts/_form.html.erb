@@ -8,9 +8,9 @@
       <%= form.text_field :title %>
     </div>
   <%# category selection %>
-    <div class="fields">
-      <%= form.label :content, "內文" %>
-      <%= form.text_area :content %>
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.rich_text_area :content %>
     </div>
 
     <%= form.submit "發布文章" %>
