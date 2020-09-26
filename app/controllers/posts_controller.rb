@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to root_path, notice: '文章修改成功'
+      redirect_to @post, notice: '文章修改成功'
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   
   def destroy
     @post.destroy
-    redirect_to @board, notice: '文章刪除成功'
+    redirect_to root_path, notice: '文章刪除成功'
   end
 
   private
